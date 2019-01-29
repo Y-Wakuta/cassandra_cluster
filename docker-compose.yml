@@ -1,0 +1,41 @@
+version: '2'
+services:
+  c1:
+    container_name: c1_wakuta
+    build: ./
+    ports:
+      #      - '7000:7000'
+      #      - '7001:7001'
+      #      - '7199:7199'
+      #      - '9042:9042'
+      - '9160:9160'
+    tty: true
+    environment:
+      - CASSANDRA_TOKEN=-9223372036854775808
+  c2:
+    container_name: c2_wakuta
+    build: ./
+    #    ports:
+      #      - '7000:7000'
+      #      - '7001:7001'
+      #      - '7199:7199'
+      #      - '9042:9042'
+      #- '9160:9160'
+    tty: true
+    environment:
+      - CASSANDRA_TOKEN=-3074457345618258603
+      - CASSANDRA_SEED=c1_wakuta
+  c3:
+    container_name: c3_wakuta
+    build: ./
+    #ports:
+      #      - '7000:7000'
+      #      - '7001:7001'
+      #      - '7199:7199'
+      #      - '9042:9042'
+      #- '9160:9160'
+    tty: true
+    environment:
+      - CASSANDRA_TOKEN=3074457345618258602
+      - CASSANDRA_SEED=c1_wakuta
+
