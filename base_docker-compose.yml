@@ -11,5 +11,5 @@ services:
           - '9160:9160'
     tty: true
     environment:
-      - CASSANDRA_BROADCAST_ADDRESS=10.1.0.13
-      - CASSANDRA_SEEDS=10.1.0.92
+      - CASSANDRA_BROADCAST_ADDRESS=badr
+      - CASSANDRA_SEEDS=sadr
