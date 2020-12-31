@@ -1,9 +1,10 @@
 #!/bin/bash
 
 set -e 
-broadcast_addr=$1
-seed_addr=$2
+broadcast_addr=$(hostname  -I | awk -F" " '{print $1}')
+seed_addr=$1
 
+./install_docker.sh
 cp base_docker-compose.yml docker-compose.yml
 
 sed -i -e "s/BROADCAST_ADDRESS=badr/BROADCAST_ADDRESS=$broadcast_addr/g"  docker-compose.yml
